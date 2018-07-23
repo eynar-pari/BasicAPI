@@ -11,5 +11,5 @@ public class MyValues {
     public static final String SERVER_MAIN_URL = HOST  + REST_API;
 
     public static final String Authentication = "Authorization";
-    public static final String Authentication_value = "";
+    public static final String Authentication_value = "ZXluYXIucGFyaUBnbWFpbC5jb206Q29udHJvbDEyMw==";
 }

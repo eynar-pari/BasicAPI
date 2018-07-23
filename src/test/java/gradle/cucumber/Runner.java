@@ -9,13 +9,13 @@ import org.junit.runner.RunWith;
  * Created by Eynar.
  */
 @RunWith(Cucumber.class)
+
 public class Runner {
 
     @Before()
     public void beforeScenario(Scenario scenario) {
 
     }
-
 
     @After()
     public void afterScenario(Scenario scenario) {
