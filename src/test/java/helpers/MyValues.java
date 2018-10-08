@@ -1,5 +1,7 @@
 package helpers;
 
+import java.util.Map;
+
 public class MyValues {
     public static final String ACCEPT = "Accept";
     public static final String ACCEPT_JSON_TEXT_ALL = "application/json, text/plain, */*";
@@ -11,5 +13,9 @@ public class MyValues {
     public static final String SERVER_MAIN_URL = HOST  + REST_API;
 
     public static final String Authentication = "Authorization";
-    public static final String Authentication_value = "";
+    public static final String Authentication_value = "Basic ZXluYXIucGFyaUBnbWFpbC5jb206Q29udHJvbDEyMyE=";
+
+    public static Map myVar;
+
 }
+
