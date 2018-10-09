@@ -23,9 +23,10 @@ public class MyStepdefs {
 
     }
 
-    @When("^I send a (POST) request to (projects.json) end point with the json$")
+    @When("^I send a (POST) request to (.*) end point with the json$")
     public void iSendAPOSTRequestToProjectsJsonEndPointWithTheJson(String method, String path, String body) throws Throwable {
-        globalResponse=FactoryRequest.make(FactoryRequest.POST).send(path,body);
+        globalResponse=FactoryRequest.make(FactoryRequest.POST).send(this.replaceMap(path),
+                this.replaceMap(body));
     }
 
     @Then("^the response code should be (\\d+)$")
@@ -59,13 +60,25 @@ public class MyStepdefs {
 
         String actualResult=globalResponse.getJsonBody();
         Assert.assertTrue("ERROR ! Json no son iguales",
-                JsonUtil.areEqualsJsonObject(expecteResult,actualResult));
+                JsonUtil.areEqualsJsonObject(this.replaceMap(expecteResult),actualResult));
     }
 
     @And("^I get the value of attribute : (.*) in (.*)$")
     public void iGetTheValueOfAttributeIdInIDTEST(String attribute, String varName) throws Throwable {
                String valueAttribute= JsonUtil.getJsonValue(globalResponse.getJsonBody(),attribute);
                myVar.put(varName,valueAttribute);
+    }
+
+    /**
+     *
+     * @param myValue
+     * @return
+     */
+    private String replaceMap(String myValue){
+        for (String key: myVar.keySet()) {
+            myValue=myValue.replace(key,myVar.get(key));
+        }
+        return myValue;
     }
 
 

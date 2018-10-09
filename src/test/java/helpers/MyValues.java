@@ -15,7 +15,7 @@ public class MyValues {
     public static final String Authentication = "Authorization";
     public static final String Authentication_value = "Basic ZXluYXIucGFyaUBnbWFpbC5jb206Q29udHJvbDEyMyE=";
 
-    public static Map myVar;
+    public static Map <String,String>myVar;
 
 }
 

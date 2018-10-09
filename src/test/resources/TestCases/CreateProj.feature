@@ -11,7 +11,7 @@ Feature: Create Project with POST request
     """
     {
           "Content": "Eynar9999",
-          "Icon": 4
+          "Icon": 1
     }
     """
     Then the response code should be 200
@@ -19,9 +19,9 @@ Feature: Create Project with POST request
     """
     {
       "Id": "IGNORE",
-      "Content": "Eynar99991",
+      "Content": "Eynar9999",
       "ItemsCount": 0,
-      "Icon": 4,
+      "Icon": 1,
       "ItemType": 2,
       "ParentId": null,
       "Collapsed": false,
@@ -38,7 +38,44 @@ Feature: Create Project with POST request
       "SyncClientCreationId": null
     }
     """
-    And I get the value of attribute : Id in IDTEST
+    And I get the value of attribute : Id in ID_PROJECT
+    When I send a POST request to projects/ID_PROJECT.json end point with the json
+    """
+    {
+          "Icon": 4
+    }
+    """
+    Then the response code should be 200
+    And the response body should be equal to
+    """
+    {
+  "Id": ID_PROJECT,
+  "Content": "Eynar9999",
+  "ItemsCount": 0,
+  "Icon": 4,
+  "ItemType": 2,
+  "ParentId": null,
+  "Collapsed": false,
+  "ItemOrder": "IGNORE",
+  "Children": [],
+  "IsProjectShared": false,
+  "ProjectShareOwnerName": null,
+  "ProjectShareOwnerEmail": null,
+  "IsShareApproved": false,
+  "IsOwnProject": true,
+  "LastSyncedDateTime": "IGNORE",
+  "LastUpdatedDate": "IGNORE",
+  "Deleted": false,
+  "SyncClientCreationId": null
+}
+    """
+
+
+
+
+
+
+
 
 
 
